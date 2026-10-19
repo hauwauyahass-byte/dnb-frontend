@@ -241,11 +241,12 @@ export default function AdminSettingsHub() {
       />
 
       {/* Search */}
-      <div className="relative max-w-md">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+      <div className="relative max-w-md" role="search" aria-label="Search settings">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" aria-hidden="true" />
         <Input
           type="text"
           placeholder="Search settings..."
+          aria-label="Search settings"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="pl-10"
@@ -298,7 +299,7 @@ export default function AdminSettingsHub() {
 
       {/* Settings Sections Grid */}
       {!showSearchResults && (
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {settingsSections.map((section) => {
             const SectionIcon = section.icon;
             return (
